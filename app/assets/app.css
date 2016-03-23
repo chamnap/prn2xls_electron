@@ -1,0 +1,39 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/** Enabled Step 3... */
+
+md-toolbar h3 {
+  margin: auto;
+  font-weight: 500;
+}
+
+md-list-item > a {
+  width:100%;
+  text-align:left !important;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+.sidenav-icon {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}

@@ -1,0 +1,20 @@
+{
+  "name": "prn2xls-ui",
+  "version": "0.1.0",
+  "description": "prn2xls application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Chamnap",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.2"
+  },
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-aria": "^1.5.2",
+    "angular-material": "^1.0.6",
+    "angular-messages": "^1.5.2"
+  }
+}

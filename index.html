@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PRN Converter</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link href="./node_modules/angular-material/angular-material.css" rel="stylesheet" />
+    <link rel="stylesheet" href="app/assets/app.css"/>
+    <script>
+      window.nodeRequire = require;
+      delete window.require;
+      delete window.exports;
+      delete window.module;
+    </script>
+  </head>
+  <body ng-app="starterApp" layout="column">
+    <!-- Container #1 (see wireframe) -->
+    <md-toolbar layout="row" >
+      <h1>PRN Converter</h1>
+    </md-toolbar>
+
+    <!-- Container #2 -->
+    <div flex layout="row">
+      <!-- Container #3 -->
+      <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+        <md-list>
+          <md-list-item ng-class="{ 'selected': $state.includes('converter') }">
+            <md-button ui-sref="converter">
+             <md-icon md-svg-src="app/assets/svg/ic_settings_black_24px.svg" class="sidenav-icon"></md-icon>
+              Converter
+            </md-button>
+          </md-list-item>
+          <md-list-item ng-class="{ 'selected': $state.includes('customer') }">
+            <md-button ui-sref="customers">
+              <md-icon md-svg-src="app/assets/svg/ic_people_outline_black_24px.svg" class="sidenav-icon"></md-icon>
+              Customer
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-sidenav>
+
+      <!-- Container #4 -->
+      <md-content flex id="content">
+        <div ui-view></div>
+      </md-content>
+    </div>
+  </body>
+
+  <script src="./node_modules/angular/angular.js" type="text/javascript" ></script>
+  <script src="./node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="./node_modules/angular-animate/angular-animate.js" type="text/javascript" ></script>
+  <script src="./node_modules/angular-aria/angular-aria.js" type="text/javascript" ></script>
+  <script src="./node_modules/angular-material/angular-material.js" type="text/javascript" ></script>
+  <script src="app/src/customers.js" type="text/javascript"></script>
+  <script src="app/src/services/customer_service.js" type="text/javascript"></script>
+  <script src="app/src/controllers/customers/index_controller.js" type="text/javascript"></script>
+  <script src="app/src/controllers/customers/new_controller.js" type="text/javascript"></script>
+  <script src="app/src/controllers/customers/edit_controller.js" type="text/javascript"></script>
+  <script src="app/src/app.js" type="text/javascript"></script>
+</html>
