@@ -37,3 +37,19 @@ app.on('ready', function() {
     mainWindow = null;
   });
 });
+
+const ipcMain = require('electron').ipcMain;
+const csv     = require('fast-csv');
+var csvPath   = __dirname + '/customers.csv';
+
+ipcMain.on('customers.list.request', function(event, arg) {
+  var data = [];
+  csv
+    .fromPath(csvPath, { headers: true, ignoreEmpty: true, trim: true })
+    .on('data', function(row) {
+      data.push(row);
+    })
+    .on('end', function(){
+      event.sender.send('customers.list.response', data);
+    });
+});

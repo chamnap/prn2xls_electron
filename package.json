@@ -15,6 +15,8 @@
     "angular-animate": "^1.5.2",
     "angular-aria": "^1.5.2",
     "angular-material": "^1.0.6",
-    "angular-messages": "^1.5.2"
+    "angular-messages": "^1.5.2",
+    "fast-csv": "^1.0.0",
+    "shortid": "^2.2.4"
   }
 }

@@ -13,6 +13,8 @@
    * @constructor
    */
   function CustomerService($q) {
+    const ipcRenderer = nodeRequire('electron').ipcRenderer;
+
     var customers = [
       {
         id: 1,
@@ -37,8 +39,14 @@
     // Promise-based API
     return {
       all: function() {
-        // Simulate async nature of real remote calls
-        return $q.when(customers);
+        var deferred = $q.defer();
+
+        ipcRenderer.send('customers.list.request');
+        ipcRenderer.on('customers.list.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
       },
 
       find: function(id) {
