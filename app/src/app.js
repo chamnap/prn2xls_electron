@@ -1,6 +1,6 @@
 var starterApp =
   angular
-    .module('starterApp', ['ngMaterial', 'ui.router', 'customers'])
+    .module('starterApp', ['ngMaterial', 'ngMessages', 'ui.router', 'customers'])
     .run(function($log, $state) {
       $log.debug("MyApp is ready!");
     });
