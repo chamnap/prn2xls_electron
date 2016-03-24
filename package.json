@@ -11,6 +11,7 @@
     "electron-prebuilt": "^0.37.2"
   },
   "dependencies": {
+    "prn2xls": "git@bitbucket.org:chamnap/prn2xls.git",
     "angular": "^1.5.2",
     "angular-animate": "^1.5.2",
     "angular-aria": "^1.5.2",
