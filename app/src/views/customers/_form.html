@@ -1,25 +1,52 @@
-<form name="customerForm">
+<form name="vm.customerForm" ng-submit="vm.submit(vm.customerForm.$valid)" novalidate="true">
   <p>English</p>
   <md-input-container class="md-block" flex-gt-sm>
     <label>Name</label>
-    <input ng-model="vm.customer.en_name">
+    <input ng-model="vm.customer.en_name" name="en_name" required="true">
+    <div ng-messages="vm.customerForm.en_name.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
   <md-input-container class="md-block">
-    <input ng-model="vm.customer.en_address1" placeholder="Address 1">
+    <input ng-model="vm.customer.en_address1" name="en_address1" placeholder="Address 1" required="true">
+    <div ng-messages="vm.customerForm.en_address1.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
   <md-input-container class="md-block">
-    <input ng-model="vm.customer.en_address2" placeholder="Address 2">
+    <input ng-model="vm.customer.en_address2" name="en_address2" placeholder="Address 2" required="true">
+    <div ng-messages="vm.customerForm.en_address2.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
 
   <p>Khmer</p>
   <md-input-container class="md-block" flex-gt-sm>
     <label>Name</label>
-    <input ng-model="vm.customer.kh_name">
+    <input ng-model="vm.customer.kh_name" name="kh_name" required="true">
+    <div ng-messages="vm.customerForm.kh_name.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
   <md-input-container class="md-block">
-    <input ng-model="vm.customer.kh_address1" placeholder="Address 1">
+    <input ng-model="vm.customer.kh_address1" name="kh_address1" placeholder="Address 1" required="true">
+    <div ng-messages="vm.customerForm.kh_address1.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
   <md-input-container class="md-block">
-    <input ng-model="vm.customer.kh_address2" placeholder="Address 2">
+    <input ng-model="vm.customer.kh_address2" name="kh_address2" placeholder="Address 2" required="true">
+    <div ng-messages="vm.customerForm.kh_address2.$error">
+      <div ng-message="required">can't be blank</div>
+    </div>
   </md-input-container>
+
+  <div class="form-btn-actions" layout="row" layout-align="start center">
+    <md-button class="md-primary md-raised" type="submit">
+      Save
+    </md-button>
+    <md-button ng-click="vm.back()">
+      Cancel
+    </md-button>
+  </div>
 </form>

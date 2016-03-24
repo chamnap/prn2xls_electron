@@ -37,3 +37,7 @@ md-list-item > a {
   -webkit-transform: scale(0.70);
   -moz-transform:scale(0.70);
 }
+
+#btn-add-customer {
+  position: fixed;
+}

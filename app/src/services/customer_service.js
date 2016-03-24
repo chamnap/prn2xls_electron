@@ -13,28 +13,8 @@
    * @constructor
    */
   function CustomerService($q) {
+    var self = this;
     const ipcRenderer = nodeRequire('electron').ipcRenderer;
-
-    var customers = [
-      {
-        id: 1,
-        en_name: 'Sok Heng (Gin Seng Wine)',
-        kh_name: 'ក្រុមហ៊ុន សុខ​ ហេង (យិន សិន វាញ)',
-        en_address1: '452 Highway No. 5 Km6 Russey Keo',
-        kh_address1: 'ផ្លូវ៤៥២ លេខ៥ គីឡូម៉ែត្រលេខ៦ បស្សីកែវ',
-        en_address2: 'Phnom Penh, Cambodia',
-        kh_address2: 'ភ្នំពេញ ព្រះរាជាណាចក្រកម្ពុជា'
-      },
-      {
-        id: 2,
-        en_name: 'Ads Marketing Solution Co., Ltd',
-        kh_name: 'ការផ្សព្វផ្សាយពាណិជ្ជកម្ម ទីផ្សារ ដំណោះស្រាយ',
-        en_address1: '#90Eo, St.02 A, Sangkat Phnom Penh',
-        kh_address1: '# 90Eo , St.02 មួយ, សង្កាត់ភ្នំពេញ',
-        en_address2: 'Thmey , Khan Sen Sok, Phnom Penh',
-        kh_address2: 'ថ្មីខណ្ឌ សែនសុខរាជធានី ភ្នំពេញ'
-      }
-    ];
 
     // Promise-based API
     return {
@@ -43,6 +23,7 @@
 
         ipcRenderer.send('customers.list.request');
         ipcRenderer.on('customers.list.response', function(event, response) {
+          self.customers = response;
           deferred.resolve(response);
         });
 
@@ -50,8 +31,47 @@
       },
 
       find: function(id) {
-        var customer = customers.find(function(customer) { return customer.id == id });
-        return $q.when(customer);
+        var deferred = $q.defer();
+
+        ipcRenderer.send('customers.find.request', id);
+        ipcRenderer.on('customers.find.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
+      },
+
+      create: function(customer) {
+        var deferred = $q.defer();
+
+        ipcRenderer.send('customers.create.request', customer);
+        ipcRenderer.on('customers.create.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
+      },
+
+      update: function(customer) {
+        var deferred = $q.defer();
+
+        ipcRenderer.send('customers.update.request', customer);
+        ipcRenderer.on('customers.update.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
+      },
+
+      destroy: function(customer) {
+        var deferred = $q.defer();
+
+        ipcRenderer.send('customers.destroy.request', customer);
+        ipcRenderer.on('customers.destroy.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
       }
     };
   }

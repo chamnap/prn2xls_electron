@@ -4,13 +4,30 @@
    .module('customers')
    .controller('NewCustomerController', [
     'customerService',
+    '$state',
+    '$stateParams',
     NewCustomerController
   ]);
 
-  function NewCustomerController() {
-    var self = this;
+  function NewCustomerController(customerService, $state, $stateParams) {
+    var vm = this;
 
-    self.formTemplate = 'app/src/views/customers/_form.html';
+    vm.formTemplate = 'app/src/views/customers/_form.html';
+    vm.customer     = {};
+
+    vm.back = function() {
+      $state.go('customers');
+    };
+
+    vm.submit = function() {
+      if(vm.customerForm.$valid) {
+        customerService.
+          create(vm.customer).
+          then(function(response) {
+            $state.go('customers_edit', { id: response.id });
+          });
+      }
+    };
   }
 
 })();

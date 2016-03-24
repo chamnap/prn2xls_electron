@@ -17,7 +17,7 @@
   </md-card-title>
   <md-card-actions layout="row" layout-align="start center">
     <md-button class="md-raised md-primary" ui-sref="customers_edit({ id: customer.id})">Edit</md-button>
-    <md-button class="md-raised md-warn">Delete</md-button>
+    <md-button class="md-raised md-warn" ng-click="vm.destroy(customer)">Delete</md-button>
     <md-card-icon-actions>
       <md-button class="md-icon-button" aria-label="icon">
         <md-icon md-svg-icon="icon"></md-icon>
@@ -26,7 +26,7 @@
   </md-card-actions>
 </md-card>
 
-<md-button class="md-fab md-fab-bottom-right" ui-sref='customers_new'>
-  <md-icon md-font-icon="ic-add"></md-icon>
-  <md-tooltip>Add new customer</md>
+<md-button id="btn-add-customer" class="md-fab md-fab-bottom-right" ui-sref='customers_new'>
+  <md-icon md-svg-src="app/assets/svg/ic_add_white_24px.svg"></md-icon>
+  <md-tooltip>Add new</md>
 </md>
