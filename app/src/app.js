@@ -1,6 +1,6 @@
 var starterApp =
   angular
-    .module('starterApp', ['ngMaterial', 'ngMessages', 'ui.router', 'customers'])
+    .module('starterApp', ['ngMaterial', 'ngMessages', 'ui.router', 'customers', 'converters'])
     .run(function($log, $state) {
       $log.debug("MyApp is ready!");
     });
@@ -11,7 +11,8 @@ starterApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('converter', {
       url: '/converter',
-      templateUrl: 'app/src/views/converter.html'
+      templateUrl: 'app/src/views/converters/new.html',
+      controller: 'NewConverterController as vm'
     })
     .state('customers', {
       url: '/customers',

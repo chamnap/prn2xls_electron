@@ -41,6 +41,7 @@ app.on('ready', function() {
 const ipcMain = require('electron').ipcMain;
 const csv     = require('fast-csv');
 const shortid = require('shortid');
+const dialog = require('electron').dialog;
 const _       = require('lodash');
 var csvPath   = __dirname + '/customers.csv';
 var customers = [];
@@ -104,4 +105,16 @@ ipcMain.on('customers.destroy.request', function(event, customer) {
     .on('finish', function() {
       event.sender.send('customers.destroy.response', { success: true });
    });
+});
+
+ipcMain.on('converter.choose_source_file.request', function(event, args) {
+  var path = dialog.showOpenDialog({ properties: [ 'openFile' ], filters: [{ name: 'PRN File', extensions: ['PRN'] }] });
+
+  event.sender.send('converter.choose_source_file.response', path);
+});
+
+ipcMain.on('converter.choose_destination_directory.request', function(event, args) {
+  var path = dialog.showOpenDialog({ properties: [ 'openDirectory' ]});
+
+  event.sender.send('converter.choose_destination_directory.response', path);
 });

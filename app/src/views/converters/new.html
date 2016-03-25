@@ -1,0 +1,28 @@
+<h1>Converter</h1>
+
+<div layout="column">
+  <div layout="row">
+    <div flex=40>PRN File</div>
+    <div flex=60>
+      <md-button class="md-raised" ng-click="vm.chooseSourceFile()">Browse</md-button>
+      <span>{{ vm.sourceFile }}</span>
+    </div>
+  </div>
+
+  <div layout="row">
+    <div flex=40>Destination folder</div>
+    <div flex=60>
+      <md-button class="md-raised" ng-click="vm.chooseDestinationDirectory()">Choose</md-button>
+      <span>{{ vm.destinationDirectory }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-btn-actions" layout="row" layout-align="start center">
+  <md-button class="md-primary md-raised" type="submit">
+    Convert
+  </md-button>
+  <md-button ng-click="vm.back()">
+    Cancel
+  </md-button>
+</div>
