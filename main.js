@@ -39,6 +39,7 @@ app.on('ready', function() {
 });
 
 const ipcMain = require('electron').ipcMain;
+const prn2xls = require('prn2xls');
 const csv     = require('fast-csv');
 const shortid = require('shortid');
 const dialog = require('electron').dialog;
@@ -117,4 +118,10 @@ ipcMain.on('converter.choose_destination_directory.request', function(event, arg
   var path = dialog.showOpenDialog({ properties: [ 'openDirectory' ]});
 
   event.sender.send('converter.choose_destination_directory.response', path);
+});
+
+ipcMain.on('converter.convert.request', function(event, sourceFile, destinationDirectory) {
+  prn2xls.convert(sourceFile, destinationDirectory, function(error, path) {
+    event.sender.send('converter.convert.response', path);
+  });
 });

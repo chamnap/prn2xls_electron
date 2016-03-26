@@ -41,3 +41,12 @@ md-list-item > a {
 #btn-add-customer {
   position: fixed;
 }
+
+.text-muted {
+  background-color: transparent;
+  color: rgba(0,0,0,0.26);
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}

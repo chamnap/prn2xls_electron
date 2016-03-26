@@ -18,6 +18,17 @@
 
     // Promise-based API
     return {
+      convert: function(sourceFile, destinationDirectory) {
+        var deferred = $q.defer();
+
+        ipcRenderer.send('converter.convert.request', sourceFile, destinationDirectory);
+        ipcRenderer.on('converter.convert.response', function(event, response) {
+          deferred.resolve(response);
+        });
+
+        return deferred.promise;
+      },
+
       sourceFile: function() {
         var deferred = $q.defer();
 
