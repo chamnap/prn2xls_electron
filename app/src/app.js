@@ -24,6 +24,11 @@ starterApp.config(function($stateProvider, $urlRouterProvider) {
       controller: 'NewCustomerController as vm',
       templateUrl: 'app/src/views/customers/new.html'
     })
+    .state('customers_show', {
+      url: '/customers/:id',
+      templateUrl: 'app/src/views/customers/show.html',
+      controller: 'CustomerController as vm'
+    })
     .state('customers_edit', {
       url: '/customers/:id/edit',
       controller: 'EditCustomerController as vm',

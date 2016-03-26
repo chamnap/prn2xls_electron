@@ -3,7 +3,7 @@
 <md-card ng-repeat="customer in vm.customers">
   <md-card-header>
     <md-card-header-text>
-      <span class="md-title">{{ customer.en_name }}</span>
+      <span class="md-title"><a ui-sref="customers_show({ id: customer.id })">{{ customer.en_name }}</a></span>
       <span class="md-subhead">{{ customer.en_address1 }}</span>
       <span class="md-subhead">{{ customer.en_address2 }}</span>
     </md-card-header-text>
@@ -12,17 +12,12 @@
     <md-card-title-text>
       <span class="md-headline">{{ customer.kh_name }}</span>
       <span class="md-subhead">{{ customer.kh_address1 }}</span>
-      <span class="md-subhead">{{ customer.kh_address2 }}</span>
+      <span>{{ customer.kh_address2 }}</span>
     </md-card-title-text>
   </md-card-title>
-  <md-card-actions layout="row" layout-align="start center">
+  <md-card-actions layout="row" layout-align="end center">
     <md-button class="md-raised md-primary" ui-sref="customers_edit({ id: customer.id})">Edit</md-button>
     <md-button class="md-raised md-warn" ng-click="vm.destroy(customer)">Delete</md-button>
-    <md-card-icon-actions>
-      <md-button class="md-icon-button" aria-label="icon">
-        <md-icon md-svg-icon="icon"></md-icon>
-      </md-button>
-    </md-card-icon-actions>
   </md-card-actions>
 </md-card>
 
