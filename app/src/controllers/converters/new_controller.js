@@ -4,12 +4,13 @@
    .module('converters')
    .controller('NewConverterController', [
     'converterService',
+    'toastService',
     '$state',
     '$stateParams',
     NewConverterController
   ]);
 
-  function NewConverterController(converterService, $state, $stateParams) {
+  function NewConverterController(converterService, toastService, $state, $stateParams) {
     var vm = this;
     const electron = nodeRequire('electron')
     const remote   = electron.remote;
@@ -17,12 +18,17 @@
     const app      = remote.app;
     vm.excelFile   = null;
     vm.destinationDirectory = app.getPath('home');
+    vm.isDisabled  = true;
 
     vm.submit = function() {
+      vm.isDisabled = true;
       converterService
         .convert(vm.sourceFile, vm.destinationDirectory)
         .then(function(path) {
-          vm.excelFile = path;
+          vm.excelFile  = path;
+          vm.isDisabled = false;
+
+          toastService.showActionToast('Successfully converted!');
         });
     };
 
@@ -31,6 +37,7 @@
         .sourceFile()
         .then(function(path) {
           vm.sourceFile = path[0];
+          vm.isDisabled = false;
         });
     };
 

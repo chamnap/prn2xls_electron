@@ -50,3 +50,7 @@ md-list-item > a {
 .margin-top-20 {
   margin-top: 20px;
 }
+
+md-toast {
+  width: 40%;
+}

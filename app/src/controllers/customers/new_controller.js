@@ -4,12 +4,13 @@
    .module('customers')
    .controller('NewCustomerController', [
     'customerService',
+    'toastService',
     '$state',
     '$stateParams',
     NewCustomerController
   ]);
 
-  function NewCustomerController(customerService, $state, $stateParams) {
+  function NewCustomerController(customerService, toastService, $state, $stateParams) {
     var vm = this;
 
     vm.formTemplate = 'app/src/views/customers/_form.html';
@@ -25,6 +26,7 @@
           create(vm.customer).
           then(function(response) {
             $state.go('customers_edit', { id: response.id });
+            toastService.showActionToast('Successfully created!');
           });
       }
     };

@@ -4,12 +4,13 @@
    .module('customers')
    .controller('EditCustomerController', [
     'customerService',
+    'toastService',
     '$state',
     '$stateParams',
     EditCustomerController
   ]);
 
-  function EditCustomerController(customerService, $state, $stateParams) {
+  function EditCustomerController(customerService, toastService, $state, $stateParams) {
     var vm = this;
     var customerId = $stateParams.id;
 
@@ -32,6 +33,7 @@
         customerService.
           update(json).
           then(function(response) {
+            toastService.showActionToast('Successfully updated!');
             $state.go('customers');
           });
       }

@@ -4,13 +4,14 @@
    .module('customers')
    .controller('CustomersController', [
     'customerService',
+    'toastService',
     '$state',
     '$stateParams',
     '$mdDialog',
     CustomersController
   ]);
 
-  function CustomersController(customerService, $state, $stateParams, $mdDialog) {
+  function CustomersController(customerService, toastService, $state, $stateParams, $mdDialog) {
     var vm = this;
 
     // Load all registered customers
@@ -25,7 +26,7 @@
         .destroy(customer)
         .then(function() {
           vm.customers.splice(vm.customers.indexOf(customer), 1);
-          // _.remove(vm.customers, function(eachCustomer) { return eachCustomer.id == customer.id; });
+          toastService.showActionToast('Successfully deleted!');
         })
     };
 
