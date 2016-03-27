@@ -28,14 +28,14 @@
       <!-- Container #3 -->
       <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
         <md-list>
-          <md-list-item ng-class="{ 'selected': $state.includes('converter') }">
-            <md-button ui-sref="converter">
+          <md-list-item>
+            <md-button ui-sref="converter" ng-class="{ 'selected': $state.includes('converter') }">
              <md-icon md-svg-src="app/assets/svg/ic_settings_black_24px.svg" class="sidenav-icon"></md-icon>
               Converter
             </md-button>
           </md-list-item>
-          <md-list-item ng-class="{ 'selected': $state.includes('customer') }">
-            <md-button ui-sref="customers">
+          <md-list-item>
+            <md-button ui-sref="customers" ng-class="{ 'selected': $state.includes('customers') }">
               <md-icon md-svg-src="app/assets/svg/ic_people_outline_black_24px.svg" class="sidenav-icon"></md-icon>
               Customer
             </md-button>

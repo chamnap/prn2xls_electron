@@ -1,8 +1,10 @@
 var starterApp =
   angular
     .module('starterApp', ['ngMaterial', 'ngMessages', 'ui.router', 'customers', 'converters', 'notifier'])
-    .run(function($log, $state) {
+    .run(function($log, $rootScope, $state, $stateParams) {
       $log.debug("MyApp is ready!");
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
     });
 
 starterApp.config(function($stateProvider, $urlRouterProvider) {
