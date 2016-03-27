@@ -4,14 +4,6 @@
   angular.module('customers')
          .service('customerService', ['$q', CustomerService]);
 
-  /**
-   * Users DataService
-   * Uses embedded, hard-coded data model; acts asynchronously to simulate
-   * remote data service call(s).
-   *
-   * @returns {{loadAll: Function}}
-   * @constructor
-   */
   function CustomerService($q) {
     var self = this;
     const ipcRenderer = nodeRequire('electron').ipcRenderer;

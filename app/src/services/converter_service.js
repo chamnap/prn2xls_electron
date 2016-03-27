@@ -4,14 +4,7 @@
   angular.module('converters')
          .service('converterService', ['$q', ConverterService]);
 
-  /**
-   * Users DataService
-   * Uses embedded, hard-coded data model; acts asynchronously to simulate
-   * remote data service call(s).
-   *
-   * @returns {{loadAll: Function}}
-   * @constructor
-   */
+
   function ConverterService($q) {
     var self = this;
     const ipcRenderer = nodeRequire('electron').ipcRenderer;

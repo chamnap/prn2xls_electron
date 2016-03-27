@@ -34,7 +34,7 @@
           update(json).
           then(function(response) {
             toastService.showActionToast('Successfully updated!');
-            $state.go('customers');
+            $state.go('customers.list');
           });
       }
     };

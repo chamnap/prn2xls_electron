@@ -25,7 +25,7 @@
         customerService.
           create(vm.customer).
           then(function(response) {
-            $state.go('customers_show', { id: response.id });
+            $state.go('customers.show', { id: response.id });
             toastService.showActionToast('Successfully created!');
           });
       }
