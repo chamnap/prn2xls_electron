@@ -14,26 +14,36 @@ starterApp.config(function($stateProvider, $urlRouterProvider) {
     .state('converter', {
       url: '/converter',
       templateUrl: 'app/src/views/converters/new.html',
-      controller: 'NewConverterController as vm'
+      controller: 'NewConverterController',
+      controllerAs: 'vm'
     })
     .state('customers', {
       url: '/customers',
-      templateUrl: 'app/src/views/customers/index.html',
-      controller: 'CustomersController as vm'
+      templateUrl: 'app/src/views/customers.html',
+      abstract: true
     })
-    .state('customers_new', {
+    .state('customers.list', {
+      url: '',
+      controller: 'CustomersController',
+      controllerAs: 'vm',
+      templateUrl: 'app/src/views/customers/index.html'
+    })
+    .state('customers.new', {
       url: '/customers/new',
-      controller: 'NewCustomerController as vm',
+      controller: 'NewCustomerController',
+      controllerAs: 'vm',
       templateUrl: 'app/src/views/customers/new.html'
     })
-    .state('customers_show', {
+    .state('customers.show', {
       url: '/customers/:id',
-      templateUrl: 'app/src/views/customers/show.html',
-      controller: 'CustomerController as vm'
+      controller: 'CustomerController',
+      controllerAs: 'vm',
+      templateUrl: 'app/src/views/customers/show.html'
     })
-    .state('customers_edit', {
+    .state('customers.edit', {
       url: '/customers/:id/edit',
-      controller: 'EditCustomerController as vm',
+      controller: 'EditCustomerController',
+      controllerAs: 'vm',
       templateUrl: 'app/src/views/customers/edit.html'
     });
 });

@@ -3,7 +3,7 @@
 <md-card ng-repeat="customer in vm.customers">
   <md-card-header>
     <md-card-header-text>
-      <span class="md-title"><a ui-sref="customers_show({ id: customer.id })">{{ customer.en_name }}</a></span>
+      <span class="md-title"><a ui-sref="customers.show({ id: customer.id })">{{ customer.en_name }}</a></span>
       <span class="md-subhead">{{ customer.en_address1 }}</span>
       <span class="md-subhead">{{ customer.en_address2 }}</span>
     </md-card-header-text>
@@ -16,12 +16,12 @@
     </md-card-title-text>
   </md-card-title>
   <md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-raised md-primary" ui-sref="customers_edit({ id: customer.id})">Edit</md-button>
+    <md-button class="md-raised md-primary" ui-sref="customers.edit({ id: customer.id})">Edit</md-button>
     <md-button class="md-raised md-warn" ng-click="vm.destroy(customer)">Delete</md-button>
   </md-card-actions>
 </md-card>
 
-<md-button id="btn-add-customer" class="md-fab md-fab-bottom-right" ui-sref='customers_new'>
+<md-button id="btn-add-customer" class="md-fab md-fab-bottom-right" ui-sref='customers.new'>
   <md-icon md-svg-src="app/assets/svg/ic_add_white_24px.svg"></md-icon>
   <md-tooltip>Add new</md>
 </md>

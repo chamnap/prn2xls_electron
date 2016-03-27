@@ -17,7 +17,7 @@
     vm.customer     = {};
 
     vm.back = function() {
-      $state.go('customers');
+      $state.go('customers.list');
     };
 
     vm.submit = function() {
