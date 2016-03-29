@@ -19,16 +19,22 @@
     vm.excelFile   = null;
     vm.destinationDirectory = app.getPath('home');
     vm.isDisabled  = true;
+    vm.convertErrors = null;
 
     vm.submit = function() {
       vm.isDisabled = true;
       converterService
         .convert(vm.sourceFile, vm.destinationDirectory)
-        .then(function(path) {
+        .then(function(error, path) {
           vm.excelFile  = path;
           vm.isDisabled = false;
+          vm.convertErrors = error;
 
-          toastService.showActionToast('Successfully converted!');
+          if (error) {
+            toastService.showActionToast('Failed to convert!');
+          } else {
+            toastService.showActionToast('Successfully converted!');
+          }
         });
     };
 

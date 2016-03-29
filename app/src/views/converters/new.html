@@ -2,6 +2,12 @@
 
 <form name="converterForm" ng-submit="vm.submit(converterForm.$valid)" novalidate="true">
   <div layout="column">
+    <div class="convert-error" ng-show="vm.convertErrors">
+      Missing the below customers:
+      <ul class="convert-error">
+        <li ng-repeat="error in vm.convertErrors">{{error}}</li>
+      </ul>
+    </div>
     <div layout="row" layout-align="start center">
       <div flex=40>PRN File</div>
       <div flex=60>
