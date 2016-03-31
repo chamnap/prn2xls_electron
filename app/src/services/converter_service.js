@@ -15,8 +15,8 @@
         var deferred = $q.defer();
 
         ipcRenderer.send('converter.convert.request', sourceFile, destinationDirectory);
-        ipcRenderer.on('converter.convert.response', function(event, error, path) {
-          deferred.resolve(error, path);
+        ipcRenderer.on('converter.convert.response', function(event, response) {
+          deferred.resolve(response);
         });
 
         return deferred.promise;

@@ -27,7 +27,7 @@ app.on('ready', function() {
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -39,5 +39,5 @@ app.on('ready', function() {
 });
 
 // ipcs
-require(__dirname + '/app/src/ipcs/converter_ipc')
-require(__dirname + '/app/src/ipcs/customer_ipc')
+require(__dirname + '/app/src/ipcs/converter_ipc');
+require(__dirname + '/app/src/ipcs/customer_ipc');

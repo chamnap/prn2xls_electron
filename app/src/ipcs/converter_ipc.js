@@ -26,7 +26,7 @@ ipcMain.on('converter.convert.request', function(event, sourceFile, destinationD
     })
     .on('end', function() {
       prn2xls.convert(sourceFile, destinationDirectory, customers, function(error, path) {
-        event.sender.send('converter.convert.response', error, path);
+        event.sender.send('converter.convert.response', { error: error, path: path});
       });
     });
 });

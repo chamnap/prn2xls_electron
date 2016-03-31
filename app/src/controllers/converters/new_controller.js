@@ -25,12 +25,12 @@
       vm.isDisabled = true;
       converterService
         .convert(vm.sourceFile, vm.destinationDirectory)
-        .then(function(error, path) {
-          vm.excelFile  = path;
+        .then(function(response) {
+          vm.convertErrors = response.error;
+          vm.excelFile  = response.path;
           vm.isDisabled = false;
-          vm.convertErrors = error;
 
-          if (error) {
+          if (response.error) {
             toastService.showActionToast('Failed to convert!');
           } else {
             toastService.showActionToast('Successfully converted!');
@@ -44,6 +44,7 @@
         .then(function(path) {
           vm.sourceFile = path[0];
           vm.isDisabled = false;
+          vm.excelFile  = null;
         });
     };
 
