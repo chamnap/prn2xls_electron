@@ -31,11 +31,11 @@
           <md-button class="md-primary md-raised" ng-click="vm.openExcel()">Open</md-button>
         </div>
       </div>
+      <div class="md-caption text-muted">{{ vm.excelFile }}</div>
 
-      <p class="text-muted">You need to create a page break at each start of the invoice manually before printing.</p>
+      <p class="text-muted">You need to create page breaks on every sheets manually.</p>
       <p class="text-muted">For more information, please visit <a target="_blank" href="https://support.office.com/en-us/article/Create-manual-page-breaks-in-a-worksheet-3765600c-8d42-4b47-96a2-83a08258c400#__toc305579616">this</a>.</p>
     </div>
-    <div class="md-caption text-muted">{{ vm.excelFile }}</div>
   </div>
 
   <div class="form-btn-actions margin-top-20" layout="row" layout-align="start center">
