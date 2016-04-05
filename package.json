@@ -23,7 +23,7 @@
     "angular-ui-router": "^0.2.18",
     "fast-csv": "^1.0.0",
     "lodash": "^4.6.1",
-    "prn2xls": "git@bitbucket.org:chamnap/prn2xls.git",
+    "prn2xls": "git@github.com:chamnap/prn2xls.git",
     "shortid": "^2.2.4"
   }
 }
