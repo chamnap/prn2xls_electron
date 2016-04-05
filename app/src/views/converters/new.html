@@ -2,7 +2,7 @@
 
 <form name="converterForm" ng-submit="vm.submit(converterForm.$valid)" novalidate="true">
   <div layout="column">
-    <div class="convert-error" ng-show="vm.convertErrors">
+    <div class="convert-error" ng-show="vm.convertErrors.length > 0">
       Missing the below customers:
       <ul class="convert-error">
         <li ng-repeat="error in vm.convertErrors">{{error}}</li>
@@ -33,8 +33,13 @@
       </div>
       <div class="md-caption text-muted">{{ vm.excelFile }}</div>
 
-      <p class="text-muted">You need to create page breaks on every sheets manually.</p>
-      <p class="text-muted">For more information, please visit <a target="_blank" href="https://support.office.com/en-us/article/Create-manual-page-breaks-in-a-worksheet-3765600c-8d42-4b47-96a2-83a08258c400#__toc305579616">this</a>.</p>
+      <h4>Print Instructions</h4>
+      <ul class="print-instruction">
+        <ol><strong>1. </strong>Open that excel file.</ol>
+        <ol><strong>2. </strong>Right click on one of the sheet tabs, and select the "Select All Sheets" from the menu.</ol>
+        <ol><strong>3. </strong>Click Page Layout menu, then select "1 page" for both width and height.</ol>
+        <ol><strong>4. </strong>File menu -> Print. Select "Entire Workbook" on "Print:" section.</ol>
+      </ul>
     </div>
   </div>
 

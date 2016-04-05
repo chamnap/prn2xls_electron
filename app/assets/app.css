@@ -68,3 +68,9 @@ md-toast {
   padding-top: 5px;
   color: rgb(221,44,0);
 }
+
+ul.print-instruction ol {
+    padding: 0px;
+    line-height: 24px;
+  }
+}

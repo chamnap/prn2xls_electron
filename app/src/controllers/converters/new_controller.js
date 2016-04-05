@@ -45,6 +45,7 @@
           vm.sourceFile = path[0];
           vm.isDisabled = false;
           vm.excelFile  = null;
+          vm.convertErrors = [];
         });
     };
 
