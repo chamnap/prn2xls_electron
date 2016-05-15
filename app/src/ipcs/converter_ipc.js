@@ -2,7 +2,8 @@ const ipcMain = require('electron').ipcMain;
 const dialog  = require('electron').dialog;
 const prn2xls = require('prn2xls');
 const csv     = require('fast-csv');
-var csvPath   = __dirname + '/../../../customers.csv';
+const path    = require('path');
+var csvPath   = path.join(__dirname, '/../../../customers.csv');
 
 ipcMain.on('converter.choose_source_file.request', function(event, args) {
   var path = dialog.showOpenDialog({ properties: [ 'openFile' ], filters: [{ name: 'PRN File', extensions: ['PRN', 'prn'] }] });
@@ -25,7 +26,12 @@ ipcMain.on('converter.convert.request', function(event, sourceFile, destinationD
       customers.push(row);
     })
     .on('end', function() {
-      prn2xls.convert(sourceFile, destinationDirectory, customers, function(error, path) {
+      var options = {
+        customers: customers,
+        unoconvPath: path.join(__dirname, '/../../../unoconv-0.7/unoconv')
+      };
+
+      prn2xls.pdf(sourceFile, destinationDirectory, options, function(error, path) {
         event.sender.send('converter.convert.response', { error: error, path: path});
       });
     });

@@ -1,12 +1,11 @@
 {
-  "name": "prn2xls-ui",
+  "name": "prn2xls-app",
   "version": "0.1.0",
   "description": "prn2xls application",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "package": "asar pack prn2xls-darwin-x64/prn2xls.app/Contents/Resources/app prn2xls-darwin-x64/prn2xls.app/Contents/Resources/app.asar",
-    "build": "electron-packager . prn2xls --platform=darwin,win32 --arch=all --overwrite"
+    "build": "electron-packager . prn2xls --platform=win32 --arch=all --overwrite"
   },
   "author": "Chamnap",
   "devDependencies": {
