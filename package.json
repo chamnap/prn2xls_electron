@@ -9,9 +9,9 @@
   },
   "author": "Chamnap",
   "devDependencies": {
+    "asar": "^0.10.0",
     "electron-packager": "^6.0.0",
-    "electron-prebuilt": "^0.37.2",
-    "asar": "^0.10.0"
+    "electron-prebuilt": "^0.37.2"
   },
   "dependencies": {
     "angular": "^1.5.2",
@@ -22,7 +22,7 @@
     "angular-ui-router": "^0.2.18",
     "fast-csv": "^1.0.0",
     "lodash": "^4.6.1",
-    "prn2xls": "git@github.com:chamnap/prn2xls.git",
+    "prn2xls": "git@github.com:chamnap/prn2xls.git#wkhtmltopdf",
     "shortid": "^2.2.4"
   }
 }
